@@ -1,3 +1,4 @@
+// models/Credit.js
 import mongoose from 'mongoose';
 
 const creditSchema = new mongoose.Schema({
@@ -41,13 +42,38 @@ const creditSchema = new mongoose.Schema({
     enum: ['en attente', 'approuvé', 'rejeté'],
     default: 'en attente',
   },
+  
+  rejectionReason: String,
 
   createdAt: {
     type: Date,
     default: Date.now
   },
 
-
+  documents: {
+    cinRecto: { type: String, default: null },
+    cinVerso: { type: String, default: null },
+    bankStatements: { type: String, default: null },
+    taxDeclaration: { type: String, default: null },
+    incomeProof: { type: String, default: null },
+    businessRegistry: { type: String, default: null },
+    residenceProof: { type: String, default: null }
+  },
+  
+  // New fields for email and contract tracking
+ emailSent: {
+    type: Boolean,
+    default: false
+  },
+  emailSentDate: Date,
+  contractStatus: {
+    type: String,
+    enum: ['sent', 'viewed', 'signed', 'rejected'],
+    default: 'sent'
+  },
+  contractUpdatedAt: Date,
+  signatureData: mongoose.Schema.Types.Mixed,
+  rejectionReason: String
 });
 
 export default mongoose.model('Credit', creditSchema);

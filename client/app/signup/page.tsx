@@ -59,7 +59,7 @@ export default function SignupPage() {
       })
 
       // Redirect to home page
-      router.push("/login")
+      router.push("/")
     } catch (error: any) {
       console.error("Signup error:", error)
 

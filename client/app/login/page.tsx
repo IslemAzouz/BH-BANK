@@ -92,7 +92,7 @@ export default function LoginPage() {
       if (userData.admin === 1) {
         router.push("/admin/dashboard")
       } else {
-        router.push("/")
+        router.push("/dashboard")
       }
     } catch (error: any) {
       console.error("Login error:", error)

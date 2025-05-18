@@ -45,7 +45,8 @@ export default function CreditSection() {
       description: "Financement avec objet (facture pro format requise)",
       features: [
         { icon: <Percent className="h-4 w-4" />, text: "TMM + 3%" },
-        { icon: <Clock className="h-4 w-4" />, text: "12 à 36 mois" }
+        { icon: <Clock className="h-4 w-4" />, text: "12 à 36 mois" },
+        { icon: <Shield className="h-4 w-4" />, text: "Plafond: 2500 DT" },
       ],
     },
   ]

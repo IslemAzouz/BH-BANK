@@ -107,7 +107,7 @@ export default function DashboardPage() {
 
           // Essayer de récupérer le profil utilisateur pour obtenir le CIN
           try {
-            const profileResponse = await axios.get("http://localhost:5000/api/auth/profile", {
+            const profileResponse = await axios.get("http://localhost:5000/auth/profile", {
               headers: {
                 Authorization: `Bearer ${token}`,
               },

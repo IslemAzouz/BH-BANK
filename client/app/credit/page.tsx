@@ -115,12 +115,24 @@ export default function CreditPage() {
     setCurrentStep(7)
   }
 
-  const handleDocumentSubmit = async () => {
+  // Update the handleDocumentSubmit function to match the schema structure
+  const handleDocumentSubmit = async (documents: {
+    cinRecto: string | null
+    cinVerso: string | null
+    bankStatements: string | null
+    taxDeclaration: string | null
+    incomeProof: string | null
+    businessRegistry: string | null
+    residenceProof: string | null
+  }) => {
     try {
-      // In a real application, you would handle file uploads separately
-      // and then submit the form data with file references
+      // Add the uploaded document URLs directly to the credit data
+      const creditDataWithDocuments = {
+        ...creditData,
+        documents, // This now matches your schema structure
+      }
 
-      const response = await axios.post("http://localhost:5000/api/req/credits", creditData)
+      const response = await axios.post("http://localhost:5000/api/req/credits", creditDataWithDocuments)
 
       toast({
         title: "Demande soumise avec succès",
